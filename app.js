@@ -16,7 +16,9 @@ mongoose.connect(process.env.MONGO_URL)
 .catch(err => console.log(err))
 //mongodb://localhost:27017/14-blog
 app.set('view engine', 'ejs')
-app.set('views','./views')
+// app.set('views','./views')
+app.set('views', path.resolve(__dirname, 'views'));
+
 app.use(express.static(path.resolve('./public')))
 app.use(express.urlencoded({extended:false}))
 app.use(cookieParser())
